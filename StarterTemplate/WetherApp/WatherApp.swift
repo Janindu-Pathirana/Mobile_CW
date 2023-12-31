@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct CWK2TemplateApp: App {
+struct WatherApp: App {
     @StateObject var weatherMapViewModel = WeatherMapViewModel()
     var body: some Scene {
         WindowGroup {

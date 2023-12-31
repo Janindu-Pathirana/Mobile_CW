@@ -187,7 +187,10 @@ struct WeatherNowView: View {
                 
                 //top wether details
                 HStack{
-                    Image(WeatherUtility.getWetherImage(type: weatherMapViewModel.weatherDataModel?.current.weather.first?.main ?? .clouds))
+                    
+                    let currentData = weatherMapViewModel.weatherDataModel?.current
+                    
+                    Image(WeatherUtility.getWetherImage(type: currentData?.weather.first?.main ?? .clouds))
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 200.0, height: 200.0)
@@ -196,17 +199,21 @@ struct WeatherNowView: View {
                     Spacer()
                     
                     VStack(alignment: .center){
-                        Text("\(TempConverterUtill.kelvinToCelsius(kelvin: weatherMapViewModel.weatherDataModel?.current.temp ?? 0.0)  )"+"°")
+                        Text("\(TempConverterUtill.kelvinToCelsius(kelvin: currentData?.temp ?? 0.0)  )"+"°")
                             .font(.custom("Helvetica Neue", size: 60))
                             .fontWeight(.bold)
                             .foregroundColor(Color.white)
                         
-                        Text(weatherMapViewModel.weatherDataModel?.current.weather.first?.weatherDescription.rawValue ?? "")
+                        Text(currentData?.weather.first?.weatherDescription.rawValue ?? "")
                             .font(.title)
                             .fontWeight(.semibold)
                             .foregroundColor(Color.white)
                         
-                        Text("feels Like \(TempConverterUtill.kelvinToCelsius(kelvin: weatherMapViewModel.weatherDataModel?.current.feelsLike ?? 0.0)  )"+"°")
+                        Text("feels Like \(TempConverterUtill.kelvinToCelsius(kelvin: currentData?.feelsLike ?? 0.0)  )"+"°")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.white)
+                        Text("Pressure \( currentData?.pressure ?? 0) hpa")
                             .font(.title3)
                             .fontWeight(.bold)
                             .foregroundColor(Color.white)

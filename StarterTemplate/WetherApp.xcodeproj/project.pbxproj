@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		689617562AEEF38A00FC5FBE /* CWK2TemplateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689617552AEEF38A00FC5FBE /* CWK2TemplateApp.swift */; };
+		689617562AEEF38A00FC5FBE /* WatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689617552AEEF38A00FC5FBE /* WatherApp.swift */; };
 		689617582AEEF38A00FC5FBE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689617572AEEF38A00FC5FBE /* ContentView.swift */; };
 		6896175A2AEEF38C00FC5FBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 689617592AEEF38C00FC5FBE /* Assets.xcassets */; };
 		6896175D2AEEF38C00FC5FBE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6896175C2AEEF38C00FC5FBE /* Preview Assets.xcassets */; };
@@ -33,7 +33,7 @@
 
 /* Begin PBXFileReference section */
 		689617522AEEF38A00FC5FBE /* WetherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WetherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		689617552AEEF38A00FC5FBE /* CWK2TemplateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWK2TemplateApp.swift; sourceTree = "<group>"; };
+		689617552AEEF38A00FC5FBE /* WatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatherApp.swift; sourceTree = "<group>"; };
 		689617572AEEF38A00FC5FBE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		689617592AEEF38C00FC5FBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6896175C2AEEF38C00FC5FBE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 				689617652AEEF46F00FC5FBE /* Models */,
 				689617642AEEF46C00FC5FBE /* ViewModels */,
 				689617632AEEF41200FC5FBE /* Views */,
-				689617552AEEF38A00FC5FBE /* CWK2TemplateApp.swift */,
+				689617552AEEF38A00FC5FBE /* WatherApp.swift */,
 				689617592AEEF38C00FC5FBE /* Assets.xcassets */,
 				6896175B2AEEF38C00FC5FBE /* Preview Content */,
 			);
@@ -244,7 +244,7 @@
 				BAFC5FCF2B3EC02500682133 /* PlacesViewModel.swift in Sources */,
 				BAFC5FCD2B3D6CE700682133 /* WeatherUtility.swift in Sources */,
 				689617692AEEF61200FC5FBE /* NavBar.swift in Sources */,
-				689617562AEEF38A00FC5FBE /* CWK2TemplateApp.swift in Sources */,
+				689617562AEEF38A00FC5FBE /* WatherApp.swift in Sources */,
 				689617732AEEF98900FC5FBE /* WeatherMapViewModel.swift in Sources */,
 				689617672AEEF4E600FC5FBE /* WeatherDataModel.swift in Sources */,
 			);
