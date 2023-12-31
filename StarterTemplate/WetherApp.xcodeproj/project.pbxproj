@@ -32,7 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		689617522AEEF38A00FC5FBE /* CWK2Template.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CWK2Template.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		689617522AEEF38A00FC5FBE /* WetherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WetherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		689617552AEEF38A00FC5FBE /* CWK2TemplateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWK2TemplateApp.swift; sourceTree = "<group>"; };
 		689617572AEEF38A00FC5FBE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		689617592AEEF38C00FC5FBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 		689617492AEEF38A00FC5FBE = {
 			isa = PBXGroup;
 			children = (
-				689617542AEEF38A00FC5FBE /* CWK2Template */,
+				689617542AEEF38A00FC5FBE /* WetherApp */,
 				689617532AEEF38A00FC5FBE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -79,12 +79,12 @@
 		689617532AEEF38A00FC5FBE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				689617522AEEF38A00FC5FBE /* CWK2Template.app */,
+				689617522AEEF38A00FC5FBE /* WetherApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		689617542AEEF38A00FC5FBE /* CWK2Template */ = {
+		689617542AEEF38A00FC5FBE /* WetherApp */ = {
 			isa = PBXGroup;
 			children = (
 				6896179C2AF3B00D00FC5FBE /* Utilities */,
@@ -95,7 +95,7 @@
 				689617592AEEF38C00FC5FBE /* Assets.xcassets */,
 				6896175B2AEEF38C00FC5FBE /* Preview Content */,
 			);
-			path = CWK2Template;
+			path = WetherApp;
 			sourceTree = "<group>";
 		};
 		6896175B2AEEF38C00FC5FBE /* Preview Content */ = {
@@ -156,9 +156,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		689617512AEEF38A00FC5FBE /* CWK2Template */ = {
+		689617512AEEF38A00FC5FBE /* WetherApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 689617602AEEF38C00FC5FBE /* Build configuration list for PBXNativeTarget "CWK2Template" */;
+			buildConfigurationList = 689617602AEEF38C00FC5FBE /* Build configuration list for PBXNativeTarget "WetherApp" */;
 			buildPhases = (
 				6896174E2AEEF38A00FC5FBE /* Sources */,
 				6896174F2AEEF38A00FC5FBE /* Frameworks */,
@@ -168,11 +168,11 @@
 			);
 			dependencies = (
 			);
-			name = CWK2Template;
+			name = WetherApp;
 			packageProductDependencies = (
 			);
 			productName = CWK2Template;
-			productReference = 689617522AEEF38A00FC5FBE /* CWK2Template.app */;
+			productReference = 689617522AEEF38A00FC5FBE /* WetherApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -190,7 +190,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6896174D2AEEF38A00FC5FBE /* Build configuration list for PBXProject "CWK2Template" */;
+			buildConfigurationList = 6896174D2AEEF38A00FC5FBE /* Build configuration list for PBXProject "WetherApp" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -205,7 +205,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				689617512AEEF38A00FC5FBE /* CWK2Template */,
+				689617512AEEF38A00FC5FBE /* WetherApp */,
 			);
 		};
 /* End PBXProject section */
@@ -304,6 +304,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = WetherApp/info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -359,6 +360,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = WetherApp/info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -376,9 +378,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CWK2Template/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"WetherApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Need permitions to access map";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -405,9 +408,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CWK2Template/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"WetherApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Need permitions to access map";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -430,7 +434,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6896174D2AEEF38A00FC5FBE /* Build configuration list for PBXProject "CWK2Template" */ = {
+		6896174D2AEEF38A00FC5FBE /* Build configuration list for PBXProject "WetherApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6896175E2AEEF38C00FC5FBE /* Debug */,
@@ -439,7 +443,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		689617602AEEF38C00FC5FBE /* Build configuration list for PBXNativeTarget "CWK2Template" */ = {
+		689617602AEEF38C00FC5FBE /* Build configuration list for PBXNativeTarget "WetherApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				689617612AEEF38C00FC5FBE /* Debug */,

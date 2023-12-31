@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftUIKit
 
 
 struct WeatherNowView: View {
