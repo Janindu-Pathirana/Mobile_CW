@@ -17,15 +17,33 @@ struct TouristPlacesMapView: View {
     
     @State private var locations: [Location] = []
     @State private var selectedLocation :Location? = nil
-    @State private var isShowDetails = false
-    @State private var  mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5216871, longitude: -0.1391574), latitudinalMeters: 600, longitudinalMeters: 600)
-
+    @State private var isShowDetails = false;
+    
+    @State private var mapCameraPosition = MapCameraPosition.camera(
+        MapCamera(
+            centerCoordinate:
+                CLLocationCoordinate2D(latitude: 51.5216871, longitude: -0.1391574)
+            , distance: 1000.0))
+    
+    
+    private func calculateMapCamera(){
+        
+        mapCameraPosition = MapCameraPosition.camera(
+            MapCamera(centerCoordinate: weatherMapViewModel.coordinates ??
+                      CLLocationCoordinate2D(latitude: 51.5216871, longitude: -0.1391574)
+                      , distance: 10000.0)
+        )
+        
+    }
+    
     var body: some View {
         
         ZStack{
-
+            
             //map
-            Map(){
+            Map(
+                position: $mapCameraPosition
+            ){
                 
                 //searched Location pin
                 
@@ -50,37 +68,46 @@ struct TouristPlacesMapView: View {
                             .frame(width: 90, height: 90)
                             .onTapGesture {
                                 
-                                print("tapped")
                                 isShowDetails = true
                                 selectedLocation = location
                                 
-                                
-                                print(isShowDetails == true && selectedLocation != nil)
                             }
-                        
                     }
                 }
             }
             .mapControlVisibility(.visible)
-            .onTapGesture {
-                isShowDetails = false;
+            .overlay(alignment:.topTrailing){
+                
+                Button(action: {
+                    
+                    calculateMapCamera()
+                    
+                }, label: {
+                    
+                    Label("", systemImage: "location.fill")
+                        .font(.title)
+                        .foregroundColor(.blue)
+                    
+                }).buttonBorderShape(.circle)
+                    .buttonStyle(.bordered)
+                    .tint(.blue)
+                    .padding(20.0)
+                
             }
-          
+            
             
             //            loading
             .blur(radius: weatherMapViewModel.weatherDataModel == nil ? 10.0 : 0.0)
             if(weatherMapViewModel.weatherDataModel == nil){
                 LoadingView(color: .blue).onDisappear(){
-                    if let data = weatherMapViewModel.weatherDataModel{
-                        mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: data.lat, longitude: data.lon), latitudinalMeters: 600, longitudinalMeters: 600)
-                    }
+                    calculateMapCamera();
                 }
             }
             
             //Places Data
             if(isShowDetails == true && selectedLocation != nil){
-                LocationDataView(locationData: selectedLocation!)
-                    .padding(.horizontal, 20.0)
+                LocationDataView(locationData: selectedLocation!, isShow:$isShowDetails)
+                
             }
         }
         
@@ -89,9 +116,10 @@ struct TouristPlacesMapView: View {
             locations = placeviewModel.locations.filter({ l in
                 l.cityName == weatherMapViewModel.city
             })
+            calculateMapCamera()
         }
         
-
+        
     }
     
 }

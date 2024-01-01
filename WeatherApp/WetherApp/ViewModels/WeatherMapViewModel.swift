@@ -16,8 +16,8 @@ class WeatherMapViewModel: ObservableObject {
     @Published var coordinates: CLLocationCoordinate2D?
     @Published var region: MKCoordinateRegion = MKCoordinateRegion()
     
-    private var apiKey = "527f8e659bef2fd7a375f540ff9099ce" //my
-//    private var apiKey = "5af3e08a792abb1819052d23d7ce242b" //sir
+//    private var apiKey = "527f8e659bef2fd7a375f540ff9099ce" //my
+    private var apiKey = "5af3e08a792abb1819052d23d7ce242b" //sir
     
     init() {
         // MARK:  create Task to load London weather data when the app first launches

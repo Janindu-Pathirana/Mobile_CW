@@ -11,7 +11,8 @@ struct LocationDataView: View {
     
     var locationData:Location
     
-    @State var selectedImageIndex = 0;
+    @Binding var isShow:Bool
+    @State private var selectedImageIndex = 0;
     
     
     private func nextImage(){
@@ -34,16 +35,26 @@ struct LocationDataView: View {
         ZStack{
             
             
+            Rectangle()
+                .fill(.white)
+                .opacity(0.1)
+                .ignoresSafeArea()
+                .onTapGesture {
+                    isShow = false;
+                    print("close")
+                }
+            
             //background
             RoundedRectangle(cornerRadius: 30)
             
                 .fill(.blue.opacity(0.6))
                 .blur(radius: 6)
                 .frame( minHeight:200, maxHeight: 500 )
+                .padding(.horizontal, 20.0)
             
             VStack{
                 
-
+                
                 HStack{
                     //navigation
                     Label("", systemImage: "arrow.backward.circle")
@@ -88,7 +99,7 @@ struct LocationDataView: View {
                     .foregroundColor(Color.white)
                     .padding()
                     .multilineTextAlignment(.center)
-                    
+                
                 
                 Spacer()
                 
@@ -97,12 +108,11 @@ struct LocationDataView: View {
                     .tint(.white)
                     .underline(true)
                     .padding()
-
+                
             }
             .frame( minHeight:200, maxHeight: 500 )
-
-        }.onAppear(){
-            print("hi")
+            .padding(.horizontal, 20.0)
+            
         }
     }
 }
