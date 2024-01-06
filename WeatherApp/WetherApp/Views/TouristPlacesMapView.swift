@@ -19,6 +19,9 @@ struct TouristPlacesMapView: View {
     @State private var selectedLocation :Location? = nil
     @State private var isShowDetails = false;
     
+    @State private var touristLocationIndex = 0;
+    
+    
     @State private var mapCameraPosition = MapCameraPosition.camera(
         MapCamera(
             centerCoordinate:
@@ -26,15 +29,98 @@ struct TouristPlacesMapView: View {
             , distance: 1000.0))
     
     
-    private func calculateMapCamera(){
+    private func calculateMapCameraPosition(coordinate : CLLocationCoordinate2D){
         
         mapCameraPosition = MapCameraPosition.camera(
-            MapCamera(centerCoordinate: weatherMapViewModel.coordinates ??
-                      CLLocationCoordinate2D(latitude: 51.5216871, longitude: -0.1391574)
+            MapCamera(centerCoordinate: coordinate
                       , distance: 10000.0)
         )
         
     }
+    
+    private func nextPlace(){
+        
+        if (locations.count-1 > touristLocationIndex){
+            
+            touristLocationIndex+=1
+            
+            calculateMapCameraPosition(coordinate : locations[touristLocationIndex].coordinates)
+            
+        }
+        
+    }
+    
+    private func prevPlace(){
+        
+        if (0 < touristLocationIndex){
+            
+            touristLocationIndex-=1
+            
+            calculateMapCameraPosition(coordinate : locations[touristLocationIndex].coordinates)
+        }
+        
+    }
+    
+    var mapNav: some View {
+        VStack{
+            
+            //back to central location
+            Button(action: {
+                
+                calculateMapCameraPosition(coordinate: weatherMapViewModel.coordinates ??
+                                   CLLocationCoordinate2D(latitude: 51.5216871, longitude: -0.1391574))
+                
+            }, label: {
+                
+                Label("", systemImage: "location.fill")
+                    .font(.title)
+                    .foregroundColor(.blue)
+                
+            }).buttonBorderShape(.circle)
+                .buttonStyle(.bordered)
+                .tint(.blue)
+                .padding(20.0)
+            
+            
+            //check Tourist Places
+            VStack{
+                Button(action: {
+                    
+                    nextPlace()
+                    
+                }, label: {
+                    
+                    Label("", systemImage: "arrow.up")
+                        .font(.title)
+                        .foregroundColor(.blue)
+                    
+                }).buttonBorderShape(.circle)
+                    .buttonStyle(.bordered)
+                    .tint(.blue)
+                
+                
+                
+                Button(action: {
+                    
+                    prevPlace()
+                    
+                }, label: {
+                    
+                    Label("", systemImage: "arrow.down")
+                        .font(.title)
+                        .foregroundColor(.blue)
+                    
+                }).buttonBorderShape(.circle)
+                    .buttonStyle(.bordered)
+                    .tint(.blue)
+                
+            }.padding(20.0)
+            
+            
+        }
+    }
+    
+    
     
     var body: some View {
         
@@ -77,22 +163,7 @@ struct TouristPlacesMapView: View {
             }
             .mapControlVisibility(.visible)
             .overlay(alignment:.topTrailing){
-                
-                Button(action: {
-                    
-                    calculateMapCamera()
-                    
-                }, label: {
-                    
-                    Label("", systemImage: "location.fill")
-                        .font(.title)
-                        .foregroundColor(.blue)
-                    
-                }).buttonBorderShape(.circle)
-                    .buttonStyle(.bordered)
-                    .tint(.blue)
-                    .padding(20.0)
-                
+             mapNav
             }
             
             
@@ -100,11 +171,12 @@ struct TouristPlacesMapView: View {
             .blur(radius: weatherMapViewModel.weatherDataModel == nil ? 10.0 : 0.0)
             if(weatherMapViewModel.weatherDataModel == nil){
                 LoadingView(color: .blue).onDisappear(){
-                    calculateMapCamera();
+                    calculateMapCameraPosition(coordinate: weatherMapViewModel.coordinates ??
+                                       CLLocationCoordinate2D(latitude: 51.5216871, longitude: -0.1391574))
                 }
             }
             
-            //Places Data
+            //Places Data show
             if(isShowDetails == true && selectedLocation != nil){
                 LocationDataView(locationData: selectedLocation!, isShow:$isShowDetails)
                 
@@ -113,12 +185,16 @@ struct TouristPlacesMapView: View {
         
         
         .onAppear(){
+            //filter locations
             locations = placeviewModel.locations.filter({ l in
                 l.cityName == weatherMapViewModel.city
             })
-            calculateMapCamera()
+            
+            //set camera position
+            calculateMapCameraPosition(coordinate: weatherMapViewModel.coordinates ??
+                               CLLocationCoordinate2D(latitude: 51.5216871, longitude: -0.1391574))
+            
         }
-        
         
     }
     

@@ -48,7 +48,7 @@ struct WeatherNowView: View {
                     
                     else{
                         HomeForcastingView(
-                            text: "\(DateFormatterUtils.formattedDate(from: data.dt, format: "dd-MM"))",
+                            text: "\(DateFormatterUtils.formattedDate(from: data.dt, format: "dd/MM"))",
                             temp: TempConverterUtill.kelvinToCelsius(kelvin: data.temp.day ),
                             image: WeatherUtility.getWetherImage(type: data.weather.first?.main ?? .clear))
                     }
@@ -214,6 +214,10 @@ struct WeatherNowView: View {
                             .fontWeight(.bold)
                             .foregroundColor(Color.white)
                         Text("Pressure \( currentData?.pressure ?? 0) hpa")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.white)
+                        Text("Wind \( String(format: "%.1f", currentData?.windSpeed ?? 0) ) mph")
                             .font(.title3)
                             .fontWeight(.bold)
                             .foregroundColor(Color.white)
