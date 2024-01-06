@@ -108,7 +108,7 @@ struct WeatherForecastView: View {
                 }
                 Spacer()
                 
-                ////picker
+                //picker
                 Picker("Select Duration", selection: $selectedDuration) {
                     ForEach(durations.allCases, id: \.self) { duration in
                         Text(duration.rawValue).tag(duration)

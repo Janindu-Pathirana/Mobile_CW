@@ -12,7 +12,7 @@ import MapKit
 class WeatherMapViewModel: ObservableObject {
     // MARK:   published variables
     @Published var weatherDataModel: WeatherDataModel?
-    @Published var city = "Landon"
+    @Published var city = "London"
     @Published var coordinates: CLLocationCoordinate2D?
     @Published var region: MKCoordinateRegion = MKCoordinateRegion()
     

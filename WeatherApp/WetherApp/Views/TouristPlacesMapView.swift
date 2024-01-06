@@ -167,7 +167,7 @@ struct TouristPlacesMapView: View {
             }
             
             
-            //            loading
+            //  loading
             .blur(radius: weatherMapViewModel.weatherDataModel == nil ? 10.0 : 0.0)
             if(weatherMapViewModel.weatherDataModel == nil){
                 LoadingView(color: .blue).onDisappear(){

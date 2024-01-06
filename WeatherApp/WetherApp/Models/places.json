@@ -65,7 +65,7 @@
     },
     {
         "name": "Tower of London",
-        "cityName": "Landon",
+        "cityName": "London",
         "latitude": 51.5081,
         "longitude": -0.0759,
         "description": "The Tower of London is a historic castle on the north bank of the River Thames...",
@@ -78,7 +78,7 @@
     },
     {
         "name": "British Museum",
-        "cityName": "Landon",
+        "cityName": "London",
         "latitude": 51.5194,
         "longitude": -0.1270,
         "description": "The British Museum is one of the world's most comprehensive museums with a vast collection of art and artifacts...",

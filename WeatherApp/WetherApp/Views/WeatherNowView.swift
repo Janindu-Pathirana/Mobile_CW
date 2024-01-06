@@ -25,7 +25,7 @@ struct WeatherNowView: View {
         return formattedDate
     }
     
-    
+    //genarate borrom card in one row
     func genarateForcastingCards(wetherData:[Daily].SubSequence)-> some View{
         
         var forcastingCards: some View {
@@ -63,6 +63,7 @@ struct WeatherNowView: View {
         
     }
     
+    //genarate borrom forcasting rows
     func genarateForcastingRows(perRow:Int, rowCount:Int) -> some View{
         
         var rows: some View {
@@ -182,8 +183,20 @@ struct WeatherNowView: View {
                             .foregroundColor(Color.white)
                         
                     }
-                }.padding(.all, 20.0)
+                }.padding([.top, .leading, .trailing], 20.0)
                 
+                
+                //date time
+                VStack{
+                    let timestamp = TimeInterval(weatherMapViewModel.weatherDataModel?.current.dt ?? 0)
+
+                     let formattedDate = DateFormatterUtils.formattedDateTime(from: timestamp)
+                                     Text(formattedDate)
+                                         .padding()
+                                         .font(.title)
+                                         .foregroundColor(.white)
+                                         
+                }
                 
                 //top wether details
                 HStack{
@@ -218,6 +231,10 @@ struct WeatherNowView: View {
                             .fontWeight(.bold)
                             .foregroundColor(Color.white)
                         Text("Wind \( String(format: "%.1f", currentData?.windSpeed ?? 0) ) mph")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.white)
+                        Text("Humidity \( currentData?.humidity ?? 0 ) %")
                             .font(.title3)
                             .fontWeight(.bold)
                             .foregroundColor(Color.white)
